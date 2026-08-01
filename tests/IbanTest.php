@@ -16,7 +16,7 @@ final class IbanTest extends TestCase
         self::assertTrue(Iban::validate($iban));
         self::assertSame('00001', Iban::providerCode($iban));
         self::assertSame('TR28 0000 1099 9900 0000 0000 01', Iban::format($iban));
-        self::assertSame('TR28 **** **** **** **** **** 01', Iban::mask($iban));
+        self::assertSame('TR28 **** **** **** **** **00 01', Iban::mask($iban));
         self::assertSame('known', ProviderRepository::identify($iban)['providerStatus']);
     }
 
