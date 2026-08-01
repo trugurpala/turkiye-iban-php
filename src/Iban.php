@@ -14,6 +14,7 @@ final class Iban
         if (strlen($normalized) <= 8) return str_repeat('*', strlen($normalized));
         return self::format(substr($normalized, 0, 4) . str_repeat('*', strlen($normalized) - 8) . substr($normalized, -4));
     }
+    /** @return array<string, mixed> */
     public static function parse(string $iban): array
     {
         $normalized = self::normalize($iban); $errors = [];
