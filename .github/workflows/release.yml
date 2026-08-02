@@ -25,3 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release workflow is active only for version tags."
+  workflow-status:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release workflow evaluated successfully."
