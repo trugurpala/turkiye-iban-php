@@ -29,6 +29,11 @@ dosyasında ayrıca tek tek çalıştırıldı.
 | PHPStan level 8 | Hata yok |
 | Gercek veri taramasi | Gercek IBAN kullanilmadi |
 
+GitHub Actions release workflow kaniti: [main run 30745790470](https://github.com/trugurpala/turkiye-iban-php/actions/runs/30745790470)
+basarili oldu. `package` job'i Composer testleri ve PHPStan level 8'i
+calistirdi; etiketsiz push oldugu icin `release` job'i beklenen sekilde skip
+edildi. Arsiv yukleme yalnizca `v*` tag push'unda calisir.
+
 ### Public API testleri
 
 | Fonksiyon | Kontrol |
