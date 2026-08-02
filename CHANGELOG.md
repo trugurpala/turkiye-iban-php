@@ -2,7 +2,10 @@
 
 ## Unreleased
 
-- Reserved for the next unreleased change.
+- Fixed the GitHub release workflow so package quality checks run as a visible
+  job on every push.
+- Limited archive creation and GitHub Release upload to version tags, with
+  write permission scoped to the publishing job.
 
 ## 0.1.5 - 2026-08-02
 
