@@ -8,6 +8,8 @@
 PHP 8.2+ Composer istemcisi: Türkiye IBAN normalleştirme, doğrulama,
 biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
 
+[Ne yapar?](#ne-yapar) · [Kurulum](#kurulum) · [Hızlı kullanım](#hızlı-kullanım) · [Public API](#public-api) · [Test ve kalite](#geliştirme-ve-kalite) · [Topluluk](#ilgili-projeler)
+
 > **Önemli sınır**
 > Bu paket IBAN biçimini ve MOD 97-10 kontrolünü doğrular; hesabın varlığını,
 > hesap sahibini, lisans durumunu veya transfer yapılabilirliğini doğrulamaz.
@@ -21,6 +23,20 @@ biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
 - Bilinen ve bilinmeyen kuruluşları ayrı sonuçlarla bildirir.
 - IBAN'ı dörder karakterlik gruplara ayırır veya maskeleyerek gösterir.
 - Veriyi runtime sırasında ağdan indirmez; `turkiye-iban` v0.2.1 release verisini kullanır.
+
+## Ne yapmaz?
+
+- Hesabın varlığını, sahibini, bakiyesini veya transfer yapılabilirliğini doğrulamaz.
+- TCMB, banka veya ödeme kuruluşu adına resmî onay ya da hesap doğrulama sunmaz.
+- Gerçek IBAN, müşteri kaydı veya kişisel finansal veri toplamaz.
+- `providerStatus: "unknown"` sonucunda otomatik kuruluş seçimi yapmaz.
+
+## Türkiye IBAN yapısı
+
+Türkiye IBAN'ı `TR` ülke kodu, iki kontrol rakamı, beş haneli kuruluş kodu,
+bir rezerv rakamı ve 16 karakterlik hesap alanından oluşur. `MOD 97-10`,
+IBAN'ın yazım bütünlüğünü matematiksel olarak kontrol eder; bir hesabın
+bankada gerçekten var olduğunu kanıtlamaz.
 
 ## Kurulum
 
@@ -78,6 +94,14 @@ Detaylı davranış ve sentetik fixture sözleşmesi için ana repository'deki
 [API belgesine](https://github.com/trugurpala/turkiye-iban/blob/main/docs/API.md)
 ve [PHP test raporuna](TEST_REPORT.md) bakın.
 
+## Sonuçları nasıl yorumlamalısınız?
+
+| Sonuç | Anlamı | Uygulama davranışı |
+| --- | --- | --- |
+| `$result['parsed']['isValid'] === false` | IBAN yapısı veya kontrol rakamları hatalıdır | IBAN'ı kabul etmeyin |
+| `$result['parsed']['isValid'] === true`, `$result['providerStatus'] === 'known'` | Kuruluş kodu veri kümesinde bulunur | Kuruluşu otomatik doldurabilirsiniz |
+| `$result['parsed']['isValid'] === true`, `$result['providerStatus'] === 'unknown'` | IBAN biçimsel olarak geçerli, kod bu veri sürümünde yoktur | Kuruluşu otomatik seçmeyin; kendi iş kuralınızı uygulayın |
+
 ## İlgili projeler
 
 - Ana veri ve TypeScript/NPM paket: [trugurpala/turkiye-iban](https://github.com/trugurpala/turkiye-iban)
@@ -107,6 +131,8 @@ kullanmayın.
 Son doğrulanmış release [v0.1.5](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.5)'tir.
 Release asseti ve checksum sonucu [TEST_REPORT.md](TEST_REPORT.md) içinde
 kayıtlıdır. Release geçmişi [CHANGELOG.md](CHANGELOG.md) dosyasındadır.
+GitHub Release workflow'u kalite kontrollerini her push'ta çalıştırır; temiz
+arşiv yalnızca `v*` version tag'inde oluşturulur.
 
 ## Divan ile üretildi
 
