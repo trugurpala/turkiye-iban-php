@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Reserved for the next unreleased change.
+
+## 0.1.5 - 2026-08-02
+
 - Added separate tests for all seven public API functions.
 - Added a user-facing release and verification report.
 - Added GitHub issue forms and pull request checklist.
