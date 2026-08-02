@@ -130,9 +130,9 @@ kullanmayın.
 ## Release
 
 Son doğrulanmış GitHub Release [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)'dır.
-`v0.1.7` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır;
-[TEST_REPORT.md](TEST_REPORT.md) ise `v0.1.5` için arşivlenmiş indirme ve
-checksum kanıtını korur. Release geçmişi [CHANGELOG.md](CHANGELOG.md)
+`v0.1.7` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır.
+[TEST_REPORT.md](TEST_REPORT.md), `v0.1.7` için indirilen arşiv ve SHA-256
+kanıtını kaydeder. Release geçmişi [CHANGELOG.md](CHANGELOG.md)
 dosyasındadır.
 GitHub Release workflow'u kalite kontrollerini her push'ta çalıştırır; temiz
 arşiv yalnızca `v*` version tag'inde oluşturulur.
