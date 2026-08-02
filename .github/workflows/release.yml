@@ -1,9 +1,8 @@
 name: Release
-on: [push, workflow_dispatch]
+on: [push]
 jobs:
-  release:
+  package:
     runs-on: ubuntu-latest
-    permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
@@ -12,9 +11,16 @@ jobs:
       - run: composer run prepare-assets
       - run: composer test
       - run: composer analyse
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
       - name: Create clean release archive
-        if: startsWith(github.ref, 'refs/tags/v')
         run: git archive --format=tar.gz --prefix=turkiye-iban-php-${GITHUB_REF_NAME}/ --output=turkiye-iban-php-${GITHUB_REF_NAME}.tar.gz "${GITHUB_SHA}"
       - uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/v')
-        with: { generate_release_notes: true, files: turkiye-iban-php-${GITHUB_REF_NAME}.tar.gz }
+        with:
+          generate_release_notes: true
+          files: turkiye-iban-php-${GITHUB_REF_NAME}.tar.gz
