@@ -91,6 +91,7 @@ echo mask_iban($iban);
 
 Detaylı davranış ve sentetik fixture sözleşmesi için ana repository'deki
 [API belgesine](https://github.com/trugurpala/turkiye-iban/blob/main/docs/API.md)
+ve [conformance belgesine](https://github.com/trugurpala/turkiye-iban/tree/main/conformance)
 ve [PHP test raporuna](TEST_REPORT.md) bakın.
 
 ## Sonuçları nasıl yorumlamalısınız?
