@@ -43,9 +43,9 @@ Packagist kaydı henüz doğrulanmadığı için bugün doğrulanmış GitHub re
 arşivini kullanın:
 
 ```bash
-curl -L https://github.com/trugurpala/turkiye-iban-php/releases/download/v0.1.6/turkiye-iban-php-v0.1.6.tar.gz -o turkiye-iban-php-v0.1.6.tar.gz
-tar -xzf turkiye-iban-php-v0.1.6.tar.gz
-cd turkiye-iban-php-v0.1.6
+curl -L https://github.com/trugurpala/turkiye-iban-php/releases/download/v0.1.7/turkiye-iban-php-v0.1.7.tar.gz -o turkiye-iban-php-v0.1.7.tar.gz
+tar -xzf turkiye-iban-php-v0.1.7.tar.gz
+cd turkiye-iban-php-v0.1.7
 composer install --no-dev
 ```
 
@@ -129,8 +129,8 @@ kullanmayın.
 
 ## Release
 
-Son doğrulanmış GitHub Release [v0.1.6](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.6)'dır.
-`v0.1.6` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır;
+Son doğrulanmış GitHub Release [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)'dır.
+`v0.1.7` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır;
 [TEST_REPORT.md](TEST_REPORT.md) ise `v0.1.5` için arşivlenmiş indirme ve
 checksum kanıtını korur. Release geçmişi [CHANGELOG.md](CHANGELOG.md)
 dosyasındadır.

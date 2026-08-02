@@ -2,6 +2,14 @@
 
 ## Yayınlanmamış
 
+## 0.1.7 - 2026-08-02
+
+- GitHub Release workflow'unda arşiv dosyası adı GitHub expression ile
+  çözümlenir; eşleşmeyen asset kalıbı artık workflow'u başarısız kılar.
+- Release oluşturma işi, Composer testleri ve PHPStan tamamlanmadan başlamaz.
+- Bu release, asset içermeden oluşan `v0.1.6` kaydını geçersiz kılar; public
+  API, canonical veri ve fixture sözleşmesi değişmedi.
+
 ## 0.1.6 - 2026-08-02
 
 - Windows `CRLF` checkout'larında conformance fixture hash doğrulamasının
