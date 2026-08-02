@@ -1,7 +1,5 @@
 name: Release
-"on":
-  push:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 jobs:
   release:
     runs-on: ubuntu-latest
