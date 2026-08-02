@@ -3,7 +3,6 @@
 [![CI](https://github.com/trugurpala/turkiye-iban-php/actions/workflows/ci.yml/badge.svg)](https://github.com/trugurpala/turkiye-iban-php/actions/workflows/ci.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/trugurpala/turkiye-iban-php)](https://github.com/trugurpala/turkiye-iban-php/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Divan ile üretildi](https://img.shields.io/badge/Divan%20ile-%C3%BCretildi-087F8C)](https://github.com/trugurpala/divan)
 
 PHP 8.2+ Composer istemcisi: Türkiye IBAN normalleştirme, doğrulama,
 biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
@@ -133,12 +132,6 @@ Release asseti ve checksum sonucu [TEST_REPORT.md](TEST_REPORT.md) içinde
 kayıtlıdır. Release geçmişi [CHANGELOG.md](CHANGELOG.md) dosyasındadır.
 GitHub Release workflow'u kalite kontrollerini her push'ta çalıştırır; temiz
 arşiv yalnızca `v*` version tag'inde oluşturulur.
-
-## Divan ile üretildi
-
-Bu proje [Divan](https://github.com/trugurpala/divan) ile tasarlandı ve üretildi.
-Divan runtime bağımlılığı değildir; paket çalışırken Divan'a veya ağ servisine
-ihtiyaç duymaz.
 
 ## Lisans
 
