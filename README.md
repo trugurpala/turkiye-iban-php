@@ -106,6 +106,7 @@ ve [PHP test raporuna](TEST_REPORT.md) bakın.
 
 - Ana veri ve TypeScript/NPM paket: [trugurpala/turkiye-iban](https://github.com/trugurpala/turkiye-iban)
 - Aynı sözleşmenin Python istemcisi: [turkiye-iban-python](https://github.com/trugurpala/turkiye-iban-python)
+- Genel sorular ve diller arası konular: [ana Discussions](https://github.com/trugurpala/turkiye-iban/discussions)
 - Ortak veri kaynakları: [DATA_SOURCES.md](https://github.com/trugurpala/turkiye-iban/blob/main/DATA_SOURCES.md)
 - Güvenlik bildirimi: [SECURITY.md](SECURITY.md)
 - Katkı rehberi: [CONTRIBUTING.md](CONTRIBUTING.md)

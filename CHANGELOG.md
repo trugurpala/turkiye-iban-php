@@ -2,6 +2,11 @@
 
 ## Yayınlanmamış
 
+- Windows `CRLF` checkout'larında conformance fixture hash doğrulamasının
+  kanonik `LF` içeriğe göre çalışması sağlandı; fixture verisi ve manifest
+  değişmedi.
+- README, genel sorular için ana repository'nin Discussions alanını gösterir.
+
 - Packagist indeks kontrolü ve yetkili submit adımı `PUBLISHING.md` içinde
   gerçek HTTP sonucu ile belgelendi.
 
