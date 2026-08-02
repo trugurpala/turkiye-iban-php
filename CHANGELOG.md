@@ -2,6 +2,9 @@
 
 ## Yayınlanmamış
 
+- Packagist indeks kontrolü ve yetkili submit adımı `PUBLISHING.md` içinde
+  gerçek HTTP sonucu ile belgelendi.
+
 - GitHub release workflow'u kalite kontrollerini her push'ta görünür bir job
   olarak çalıştırır.
 - Arşiv oluşturma ve GitHub Release yükleme yalnızca sürüm etiketleriyle yapılır;

@@ -1,5 +1,18 @@
 # Yayınlama
 
+## Packagist submission status
+
+Verification on 2026-08-02 returned HTTP 404 for
+`https://repo.packagist.org/p2/trugurpala/turkiye-iban.json`. An unauthenticated
+submission was rejected with `Missing or invalid username/apiToken`; no
+Packagist package was created.
+
+The maintainer must submit
+`https://github.com/trugurpala/turkiye-iban-php` at
+[Packagist submit](https://packagist.org/packages/submit), enable the GitHub
+webhook, and then verify a clean `composer require trugurpala/turkiye-iban`
+installation before changing the README claim.
+
 PHP istemcisinin doğrulanmış GitHub release'i vardır; Packagist kayıt durumu
 henüz doğrulanmamıştır. Temiz Composer kurulumu kontrol edilmeden
 `composer require trugurpala/turkiye-iban` komutunu kullanılabilir bir Packagist
