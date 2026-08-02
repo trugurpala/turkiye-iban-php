@@ -30,8 +30,32 @@ final class ConformanceTest extends TestCase
         foreach ($manifest['fixtures'] as $fixture) {
             $path = self::FIXTURE_DIR . $fixture['file'];
             self::assertFileExists($path);
-            self::assertSame($fixture['sha256'], hash_file('sha256', $path));
+            self::assertSame(
+                $fixture['sha256'],
+                self::canonicalFixtureSha256((string) file_get_contents($path)),
+            );
         }
+    }
+
+    public function testManifestHashIsStableForWindowsLineEndings(): void
+    {
+        $manifest = json_decode(
+            (string) file_get_contents(self::FIXTURE_DIR . 'conformance.manifest.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+        $fixture = $manifest['fixtures'][0];
+        $content = str_replace(
+            "\r\n",
+            "\n",
+            (string) file_get_contents(self::FIXTURE_DIR . $fixture['file']),
+        );
+
+        self::assertSame(
+            $fixture['sha256'],
+            self::canonicalFixtureSha256(str_replace("\n", "\r\n", $content)),
+        );
     }
 
     public function testSharedFixtureSemantics(): void
@@ -47,5 +71,10 @@ final class ConformanceTest extends TestCase
             self::assertSame($fixture['providerStatus'], $result['providerStatus']);
             self::assertSame($fixture['providerCode'], $result['providerCode']);
         }
+    }
+
+    private static function canonicalFixtureSha256(string $content): string
+    {
+        return hash('sha256', str_replace("\r\n", "\n", $content));
     }
 }
