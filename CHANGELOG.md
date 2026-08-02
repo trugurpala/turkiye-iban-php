@@ -8,6 +8,8 @@
   yazma yetkisi yayın job'ı ile sınırlandırılır.
 - PHP istemci topluluk belgeleri, veri düzeltme formu ve public yüzey kontrolü
   Türkçe kullanım rehberiyle eşitlendi.
+- Ana repository ile fixture byte parity'sini doğrulayan conformance fixture
+  seti ve testleri eklendi.
 
 ## 0.1.5 - 2026-08-02
 

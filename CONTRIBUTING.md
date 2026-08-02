@@ -18,6 +18,8 @@ composer test
 composer analyse
 ```
 
+`tests/fixtures/conformance.manifest.json` içindeki checksum'ların ana
+repository'nin conformance release'iyle eşleştiğini kontrol edin.
 Kurulu PHP sürümünü, yapılan değişikliği ve release etkisini PR açıklamasında
 belirtin. Sabitlenmiş veri sürümü değişiyorsa checksum ve kaynak geçmişini de
 ekleyin. README, CHANGELOG, TEST_REPORT ve etkilenebilecek public belgeleri
