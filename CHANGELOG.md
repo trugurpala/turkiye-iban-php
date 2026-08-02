@@ -9,6 +9,7 @@
 - Added separate tests for all seven public API functions.
 - Added a user-facing release and verification report.
 - Added GitHub issue forms and pull request checklist.
+- Published a clean source archive without local dependencies or cache files.
 
 ## 0.1.4 - 2026-08-01
 

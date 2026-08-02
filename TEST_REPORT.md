@@ -6,17 +6,18 @@ kullanildi.
 
 ## Indirilen Release Kaniti
 
-- Release: [v0.1.4](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.4)
-- Asset: `turkiye-iban-php-v0.1.4.tar.gz`
-- SHA-256: `2d3ec8624e88a12d729bafd5c3ec884088bbf622e64cf311ba17f942257dc253`
-- Paket yapisi: `src/`, `tests/`, `resources/`, `scripts/`, Composer ve GitHub Actions dosyalari mevcut
+- Release: [v0.1.5](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.5)
+- Asset: `turkiye-iban-php-v0.1.5.tar.gz`
+- SHA-256: `6b19e849aede462fd05ecf19a1e78e753dfa5c23d1d955cd4de825b48fb6afc4`
+- Paket yapisi: `src/`, `tests/`, `resources/`, `scripts/` ve GitHub Actions dosyalari mevcut
 
-`v0.1.4` arşivi temiz bir klasöre yeniden indirildi; SHA-256 değeri eşleşti,
-Composer metadata doğrulandı, bağımlılıklar temiz kuruldu, PHPUnit ve PHPStan
-çalıştı. Bu arşiv yayınlandığı tarihteki test setiyle **3 test, 10 assertion**
-geçti. Güncel yedi public API testi `main` dalındaki
+`v0.1.5` arşivi GitHub release'ından temiz bir klasöre yeniden indirildi;
+SHA-256 değeri eşleşti, paket içinde `vendor/`, cache veya yerel
+`composer.lock` bulunmadığı kontrol edildi. Composer metadata doğrulandı,
+bağımlılıklar temiz kuruldu, PHPUnit ve PHPStan çalıştı. Release arşivinin
+kendisi **10 test, 26 assertion** geçti. Yedi public API testi
 [`tests/PublicApiTest.php`](https://github.com/trugurpala/turkiye-iban-php/blob/main/tests/PublicApiTest.php)
-dosyasında ayrıca çalıştırıldı.
+dosyasında ayrıca tek tek çalıştırıldı.
 
 ## Ortam ve Sonuc
 
@@ -40,7 +41,7 @@ dosyasında ayrıca çalıştırıldı.
 | `format_iban` | Dordlu gruplara ayirma |
 | `mask_iban` | Ekran/log icin maskeleme |
 
-Güncel `main` çalışma sonucu: **10 PHPUnit testi, 26 assertion, başarılı**.
+Release çalışma sonucu: **10 PHPUnit testi, 26 assertion, başarılı**.
 Yedi public API fonksiyonu ayrıca ayrı ayrı **1 test** olarak çalıştırıldı.
 PHPStan seviye 8 sonucu: **No errors**. GitHub Actions ayrıca PHP 8.2, 8.3 ve
 8.4 matrisini çalıştırmıştır.
