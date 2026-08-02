@@ -1,14 +1,22 @@
 ﻿# PHP Test Report
 
-Bu rapor, `turkiye-iban-php` istemcisinin public API'sini ve `v0.1.4`
-release assetini tek tek kontrol eder. Testlerde yalniz sentetik IBAN kullanildi.
+Bu rapor, `turkiye-iban-php` istemcisinin public API'sini ve indirilebilir
+release assetlerini tek tek kontrol eder. Testlerde yalniz sentetik IBAN
+kullanildi.
 
-## Release Kaniti
+## Indirilen Release Kaniti
 
 - Release: [v0.1.4](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.4)
 - Asset: `turkiye-iban-php-v0.1.4.tar.gz`
 - SHA-256: `2d3ec8624e88a12d729bafd5c3ec884088bbf622e64cf311ba17f942257dc253`
 - Paket yapisi: `src/`, `tests/`, `resources/`, `scripts/`, Composer ve GitHub Actions dosyalari mevcut
+
+`v0.1.4` arşivi temiz bir klasöre yeniden indirildi; SHA-256 değeri eşleşti,
+Composer metadata doğrulandı, bağımlılıklar temiz kuruldu, PHPUnit ve PHPStan
+çalıştı. Bu arşiv yayınlandığı tarihteki test setiyle **3 test, 10 assertion**
+geçti. Güncel yedi public API testi `main` dalındaki
+[`tests/PublicApiTest.php`](https://github.com/trugurpala/turkiye-iban-php/blob/main/tests/PublicApiTest.php)
+dosyasında ayrıca çalıştırıldı.
 
 ## Ortam ve Sonuc
 
@@ -32,9 +40,10 @@ release assetini tek tek kontrol eder. Testlerde yalniz sentetik IBAN kullanildi
 | `format_iban` | Dordlu gruplara ayirma |
 | `mask_iban` | Ekran/log icin maskeleme |
 
-Yerel calisma sonucu: **10 PHPUnit testi, 26 assertion, basarili**. PHPStan
-seviye 8 sonucu: **No errors**. GitHub Actions ayrica PHP 8.2, 8.3 ve 8.4
-matrisini calistirmistir.
+Güncel `main` çalışma sonucu: **10 PHPUnit testi, 26 assertion, başarılı**.
+Yedi public API fonksiyonu ayrıca ayrı ayrı **1 test** olarak çalıştırıldı.
+PHPStan seviye 8 sonucu: **No errors**. GitHub Actions ayrıca PHP 8.2, 8.3 ve
+8.4 matrisini çalıştırmıştır.
 
 ## Sinir
 
