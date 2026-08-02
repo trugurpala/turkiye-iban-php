@@ -1,28 +1,95 @@
 # turkiye-iban-php
 
-PHP 8.2+ Composer client for Turkish IBAN normalization, validation, formatting, masking, and provider-code lookup.
+[![CI](https://github.com/trugurpala/turkiye-iban-php/actions/workflows/ci.yml/badge.svg)](https://github.com/trugurpala/turkiye-iban-php/actions/workflows/ci.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/trugurpala/turkiye-iban-php)](https://github.com/trugurpala/turkiye-iban-php/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Divan ile üretildi](https://img.shields.io/badge/Divan%20ile-%C3%BCretildi-087F8C)](https://github.com/trugurpala/divan)
+
+PHP 8.2+ Composer istemcisi: Türkiye IBAN normalleştirme, doğrulama,
+biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
+
+> [!IMPORTANT]
+> Bu paket IBAN biçimini ve MOD 97-10 kontrolünü doğrular; hesabın varlığını,
+> hesap sahibini, lisans durumunu veya transfer yapılabilirliğini doğrulamaz.
+> `providerStatus: "unknown"`, checksum hatası değil, kodun sabitlenmiş veri
+> kümesinde bulunmadığı anlamına gelir. Paket TCMB tarafından onaylanmış değildir.
+
+## Ne yapar?
+
+- Türkiye IBAN yapısını ve kontrol rakamlarını doğrular.
+- Beş haneli kuruluş kodunu çıkarır ve sabitlenmiş veriyle eşleştirir.
+- Bilinen ve bilinmeyen kuruluşları ayrı sonuçlarla bildirir.
+- IBAN'ı dörder karakterlik gruplara ayırır veya maskeleyerek gösterir.
+- Veriyi runtime sırasında ağdan indirmez; `turkiye-iban` v0.2.1 release verisini kullanır.
+
+## Kurulum
+
+Packagist kaydı henüz doğrulanmadığı için bugün doğrulanmış GitHub release
+arşivini kullanın:
+
+```bash
+curl -L https://github.com/trugurpala/turkiye-iban-php/releases/download/v0.1.4/turkiye-iban-php-v0.1.4.tar.gz -o turkiye-iban-php-v0.1.4.tar.gz
+tar -xzf turkiye-iban-php-v0.1.4.tar.gz
+cd turkiye-iban-php-v0.1.4
+composer install --no-dev
+```
+
+Packagist kaydı doğrulandıktan sonra kısa kurulum yolu şu olacaktır:
 
 ```bash
 composer require trugurpala/turkiye-iban
 ```
 
+Güncel durum için ana projenin [Packagist/PyPI yayın belgesine](https://github.com/trugurpala/turkiye-iban/blob/main/docs/PACKAGE_INDEX_PUBLICATION.md) bakın.
+
+## Hızlı kullanım
+
 ```php
 <?php
+
 require 'vendor/autoload.php';
 
-use TurkiyeIban\ProviderRepository;
-use TurkiyeIban\Iban;
+use function identify_bank_from_iban;
+use function mask_iban;
 
-$iban = 'TR280000109999000000000001'; // synthetic documentation value
-$result = ProviderRepository::identify($iban);
-echo Iban::format($iban);
+$iban = 'TR280000109999000000000001'; // yalnızca sentetik örnek
+$result = identify_bank_from_iban($iban);
+
+if ($result['parsed']['isValid'] && $result['providerStatus'] === 'known') {
+    echo $result['provider']['nameOfficial'];
+}
+
+echo mask_iban($iban);
 ```
 
-The package checks Turkish IBAN structure and MOD 97-10 and maps the five-digit provider code to the pinned dataset. It does not verify that an account exists, identify an account holder, prove licensing, or guarantee transferability. `providerStatus=unknown` means the code is absent from the pinned dataset; it is not a claim that the IBAN checksum is invalid.
+## Public API
 
-Data is embedded from the `turkiye-iban` v0.2.1 release and is not fetched at runtime. All examples and tests are synthetic. This package is not TCMB-approved.
+| Fonksiyon | Görevi |
+| --- | --- |
+| `parse_iban` | IBAN bölümlerini ve hata kodlarını döndürür |
+| `validate_turkish_iban` | Yapı ve MOD 97-10 sonucunu döndürür |
+| `get_bank_code_from_iban` | Beş haneli kuruluş kodunu çıkarır |
+| `find_bank_by_code` | Kodu veri kümesinde arar |
+| `identify_bank_from_iban` | Doğrulama ve kuruluş eşleştirmesini birleştirir |
+| `format_iban` | IBAN'ı dörderli gruplara ayırır |
+| `mask_iban` | IBAN'ın büyük bölümünü gizler |
 
-## Development
+Detaylı davranış ve sentetik fixture sözleşmesi için ana repository'deki
+[API belgesine](https://github.com/trugurpala/turkiye-iban/blob/main/docs/API.md)
+ve [PHP test raporuna](TEST_REPORT.md) bakın.
+
+## İlgili projeler
+
+- Ana veri ve TypeScript/NPM paket: [trugurpala/turkiye-iban](https://github.com/trugurpala/turkiye-iban)
+- Aynı sözleşmenin Python istemcisi: [turkiye-iban-python](https://github.com/trugurpala/turkiye-iban-python)
+- Ortak veri kaynakları: [DATA_SOURCES.md](https://github.com/trugurpala/turkiye-iban/blob/main/DATA_SOURCES.md)
+- Güvenlik bildirimi: [SECURITY.md](SECURITY.md)
+- Katkı rehberi: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Yayınlama: [PUBLISHING.md](PUBLISHING.md)
+- Destek: [SUPPORT.md](SUPPORT.md)
+- Davranış kuralları: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+## Geliştirme ve kalite
 
 ```bash
 composer install
@@ -30,9 +97,23 @@ composer test
 composer analyse
 ```
 
-Tek tek public API testlerinin sonucu ve release asset kaniti icin
-[PHP Test Report](TEST_REPORT.md) belgesine bakin.
+Her public API fonksiyonunun ayrı test edildiği [TEST_REPORT.md](TEST_REPORT.md)
+belgesinde PHP 8.4 yerel kanıtı ve PHP 8.2/8.3/8.4 GitHub CI matrisi bulunur.
+Gerçek IBAN, müşteri adı veya kişisel finansal veri issue, test veya PR içinde
+kullanmayın.
 
-## License
+## Release
 
-MIT. See [LICENSE](LICENSE) and [SECURITY.md](SECURITY.md).
+Son doğrulanmış release [v0.1.4](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.4)'tür.
+Release asseti ve checksum sonucu [TEST_REPORT.md](TEST_REPORT.md) içinde
+kayıtlıdır. Release geçmişi [CHANGELOG.md](CHANGELOG.md) dosyasındadır.
+
+## Divan ile üretildi
+
+Bu proje [Divan](https://github.com/trugurpala/divan) ile tasarlandı ve üretildi.
+Divan runtime bağımlılığı değildir; paket çalışırken Divan'a veya ağ servisine
+ihtiyaç duymaz.
+
+## Lisans
+
+MIT. Ayrıntılar için [LICENSE](LICENSE) ve [NOTICE](NOTICE) dosyalarına bakın.
