@@ -30,6 +30,9 @@ composer test
 composer analyse
 ```
 
+Tek tek public API testlerinin sonucu ve release asset kaniti icin
+[PHP Test Report](TEST_REPORT.md) belgesine bakin.
+
 ## License
 
 MIT. See [LICENSE](LICENSE) and [SECURITY.md](SECURITY.md).
