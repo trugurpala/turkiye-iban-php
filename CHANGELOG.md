@@ -2,6 +2,9 @@
 
 ## Yayınlanmamış
 
+- `v0.1.7` release arşivinin indirilen SHA-256 kanıtı `TEST_REPORT.md` içinde
+  kaydedildi; asset içermeyen `v0.1.6` withdrawn prerelease olarak işaretlendi.
+
 ## 0.1.7 - 2026-08-02
 
 - GitHub Release workflow'unda arşiv dosyası adı GitHub expression ile

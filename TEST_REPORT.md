@@ -4,6 +4,17 @@ Bu rapor, `turkiye-iban-php` istemcisinin public API'sini ve indirilebilir
 release assetlerini tek tek kontrol eder. Testlerde yalniz sentetik IBAN
 kullanildi.
 
+## Güncel Release Kanıtı
+
+- Release: [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)
+- Asset: `turkiye-iban-php-v0.1.7.tar.gz`
+- SHA-256: `6fba994e11b016e5238fa8fa350ec4652682ca5ac08e9cb7114751902ffe00c9`
+- GitHub Actions: [tag run 30763570929](https://github.com/trugurpala/turkiye-iban-php/actions/runs/30763570929), Composer testleri ve PHPStan tamamlandıktan sonra arşivi yükledi.
+
+Arşiv GitHub Release'den yeniden indirildi; SHA-256 özeti asset kaydıyla
+eşleşti. `v0.1.6` asset içermeden oluştuğu için withdrawn prerelease olarak
+işaretlendi; kurulum için `v0.1.7` kullanılmalıdır.
+
 ## Indirilen Release Kaniti
 
 - Release: [v0.1.5](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.5)
