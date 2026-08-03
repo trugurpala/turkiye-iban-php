@@ -4,6 +4,13 @@ Bu depo yalnızca PHP istemcisini ve ana Türkiye IBAN veri sözleşmesinin PHP
 uygulamasını kapsar. Kanonik kuruluş verisi
 [ana depoda](https://github.com/trugurpala/turkiye-iban) tutulur.
 
+## Geliştirme altyapısı
+
+Projenin planlama, kalıcı bağlam ve doğrulanabilir teslim akışı
+[Divan](https://github.com/trugurpala/divan) ile düzenlenir. Divan, Codex ve
+Claude Code gibi kodlama araçlarına ortak proje bağlamı ve tamamlanma kanıtları
+sağlayan geliştirme orkestrasyon katmanıdır.
+
 ## Katkı yolları
 
 - Tekrarlanabilir PHP hatası için [bug formunu](https://github.com/trugurpala/turkiye-iban-php/issues/new/choose)
