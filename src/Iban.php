@@ -6,7 +6,13 @@ namespace TurkiyeIban;
 
 final class Iban
 {
-    public static function normalize(string $iban): string { return strtoupper((string) preg_replace('/\s+/', '', $iban)); }
+    private const MAX_INPUT_LENGTH = 1024;
+
+    public static function normalize(string $iban): string
+    {
+        if (strlen($iban) > self::MAX_INPUT_LENGTH) return '';
+        return strtoupper((string) preg_replace('/\s+/', '', $iban));
+    }
     public static function format(string $iban): string { return implode(' ', str_split(self::normalize($iban), 4)); }
     public static function mask(string $iban): string
     {
@@ -17,6 +23,20 @@ final class Iban
     /** @return array<string, mixed> */
     public static function parse(string $iban): array
     {
+        if (strlen($iban) > self::MAX_INPUT_LENGTH) {
+            return [
+                'input'=>$iban,
+                'normalized'=>'',
+                'formatted'=>'',
+                'countryCode'=>'',
+                'checkDigits'=>'',
+                'bankCode'=>'',
+                'reserveDigit'=>'',
+                'accountNumber'=>'',
+                'isValid'=>false,
+                'errors'=>['INVALID_LENGTH'],
+            ];
+        }
         $normalized = self::normalize($iban); $errors = [];
         if ($normalized === '') $errors[] = 'EMPTY_INPUT';
         if (!preg_match('/^[A-Z0-9]*$/', $normalized)) $errors[] = 'INVALID_CHARACTERS';

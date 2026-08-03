@@ -7,7 +7,7 @@
 PHP 8.2+ Composer istemcisi: Türkiye IBAN normalleştirme, doğrulama,
 biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
 
-[Ne yapar?](#ne-yapar) · [Kurulum](#kurulum) · [Hızlı kullanım](#hızlı-kullanım) · [Public API](#public-api) · [Divan](#divan-ile-geliştirildi) · [Test ve kalite](#geliştirme-ve-kalite) · [Topluluk](#ilgili-projeler)
+[Ne yapar?](#ne-yapar) · [Nerede kullanılır?](#nerede-kullanılır) · [Kurulum](#kurulum) · [Hızlı kullanım](#hızlı-kullanım) · [Public API](#public-api) · [Divan](#divan-ile-geliştirildi) · [Test ve kalite](#geliştirme-ve-kalite) · [Topluluk](#ilgili-projeler)
 
 > **Önemli sınır**
 > Bu paket IBAN biçimini ve MOD 97-10 kontrolünü doğrular; hesabın varlığını,
@@ -23,12 +23,32 @@ biçimlendirme, maskeleme ve kuruluş kodu eşleştirmesi.
 - IBAN'ı dörder karakterlik gruplara ayırır veya maskeleyerek gösterir.
 - Veriyi runtime sırasında ağdan indirmez; `turkiye-iban` v0.2.1 release verisini kullanır.
 
+## Nerede kullanılır?
+
+- Ödeme, bordro veya müşteri formlarında Türkiye IBAN'ını kaydetmeden önce
+  yazım hatalarını yakalamak.
+- Geçerli bir IBAN içindeki kuruluş kodundan banka veya ödeme kuruluşu alanını
+  otomatik doldurmak.
+- Yönetim paneli, dekont özeti veya hata ekranında IBAN'ı okunabilir ya da
+  maskelenmiş biçimde göstermek.
+- Dış servise istek atmadan, sabitlenmiş veri sürümüyle çevrimdışı ve
+  tekrarlanabilir kontrol yapmak.
+
+Tipik akış şudur: önce `parsed.isValid` sonucunu kontrol edin; geçerliyse
+`providerStatus` değerine göre kuruluş alanını otomatik doldurup
+doldurmayacağınıza karar verin. Bu paket banka hesabına bağlanmaz ve para
+transferi yapmaz.
+
 ## Ne yapmaz?
 
 - Hesabın varlığını, sahibini, bakiyesini veya transfer yapılabilirliğini doğrulamaz.
 - TCMB, banka veya ödeme kuruluşu adına resmî onay ya da hesap doğrulama sunmaz.
 - Gerçek IBAN, müşteri kaydı veya kişisel finansal veri toplamaz.
 - `providerStatus: "unknown"` sonucunda otomatik kuruluş seçimi yapmaz.
+
+Girdi 1.024 karakterden uzunsa API bunu `INVALID_LENGTH` olarak reddeder;
+formatlama ve maskeleme fonksiyonları boş metin döndürür. Sunucu uygulamaları
+ayrıca kendi istek gövdesi sınırlarını uygulamalıdır.
 
 ## Türkiye IBAN yapısı
 
@@ -43,9 +63,9 @@ Packagist kaydı henüz doğrulanmadığı için bugün doğrulanmış GitHub re
 arşivini kullanın:
 
 ```bash
-curl -L https://github.com/trugurpala/turkiye-iban-php/releases/download/v0.1.7/turkiye-iban-php-v0.1.7.tar.gz -o turkiye-iban-php-v0.1.7.tar.gz
-tar -xzf turkiye-iban-php-v0.1.7.tar.gz
-cd turkiye-iban-php-v0.1.7
+curl -L https://github.com/trugurpala/turkiye-iban-php/releases/download/v0.1.8/turkiye-iban-php-v0.1.8.tar.gz -o turkiye-iban-php-v0.1.8.tar.gz
+tar -xzf turkiye-iban-php-v0.1.8.tar.gz
+cd turkiye-iban-php-v0.1.8
 composer install --no-dev
 ```
 
@@ -137,9 +157,9 @@ kullanmayın.
 
 ## Release
 
-Son doğrulanmış GitHub Release [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)'dır.
-`v0.1.7` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır.
-[TEST_REPORT.md](TEST_REPORT.md), `v0.1.7` için indirilen arşiv ve SHA-256
+Son doğrulanmış GitHub Release [v0.1.8](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.8)'dır.
+`v0.1.8` arşivi ve bu sürümün GitHub Actions sonucu release sayfasındadır.
+[TEST_REPORT.md](TEST_REPORT.md), `v0.1.8` için indirilen arşiv ve SHA-256
 kanıtını kaydeder. Release geçmişi [CHANGELOG.md](CHANGELOG.md)
 dosyasındadır.
 GitHub Release workflow'u kalite kontrollerini her push'ta çalıştırır; temiz

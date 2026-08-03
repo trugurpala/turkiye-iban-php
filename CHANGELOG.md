@@ -1,7 +1,11 @@
 # Değişiklik Günlüğü
 
-## Yayınlanmamış
+## 0.1.8 - 2026-08-03
 
+- Ana istemci sözleşmesiyle uyumlu olarak 1.024 karakterden uzun girdiler
+  büyük normalize edilmiş veya maskelenmiş değer üretmeden reddedilir.
+- README, paketin form doğrulama, kuruluş alanı otomatik doldurma ve güvenli
+  gösterim gibi gerçek kullanım senaryolarını açıklar.
 - `v0.1.7` release arşivinin indirilen SHA-256 kanıtı `TEST_REPORT.md` içinde
   kaydedildi; asset içermeyen `v0.1.6` withdrawn prerelease olarak işaretlendi.
 
