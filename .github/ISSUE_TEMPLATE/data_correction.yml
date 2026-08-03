@@ -1,55 +1,55 @@
-name: Data contract correction
-description: Report a provider-code or shared IBAN contract issue with public evidence.
-title: "[Data]: "
+name: Veri sözleşmesi düzeltmesi
+description: Kuruluş kodu veya ortak IBAN sözleşmesi sorununu public kanıtla bildirin.
+title: "[Veri]: "
 labels: ["data"]
 body:
   - type: markdown
     attributes:
       value: |
-        The canonical provider data lives in the main repository. Use this form for a PHP client compatibility issue or to route a correction to the shared data project.
-        Do not include a real IBAN, account number, customer name, production log, or personal financial data.
+        Kanonik kuruluş verisi ana depoda tutulur. Bu formu PHP istemci uyumluluk sorunu veya ortak veri projesine yönlendirilecek bir düzeltme için kullanın.
+        Gerçek IBAN, hesap numarası, müşteri adı, üretim logu veya kişisel finansal veri eklemeyin.
   - type: input
     id: provider_code
     attributes:
-      label: Provider code
-      description: Five-digit synthetic code only.
+      label: Kuruluş kodu
+      description: Yalnızca beş haneli sentetik kod yazın.
       placeholder: "00001"
     validations:
       required: true
   - type: textarea
     id: current_value
     attributes:
-      label: Current value
-      description: What does the PHP client currently return?
+      label: Mevcut değer
+      description: PHP istemcisi şu anda ne döndürüyor?
     validations:
       required: true
   - type: textarea
     id: expected_value
     attributes:
-      label: Expected value
-      description: What should it return, and why?
+      label: Beklenen değer
+      description: Ne döndürmeli ve neden?
     validations:
       required: true
   - type: input
     id: source_url
     attributes:
-      label: Public source
-      description: Link to an official or independently verifiable source.
+      label: Public kaynak
+      description: Resmî veya bağımsız doğrulanabilir bir kaynağa bağlantı verin.
       placeholder: "https://..."
     validations:
       required: true
   - type: input
     id: accessed_at
     attributes:
-      label: Access date
-      description: Date the source was checked, in YYYY-MM-DD format.
+      label: Erişim tarihi
+      description: Kaynağın kontrol edildiği tarihi YYYY-MM-DD biçiminde yazın.
       placeholder: "2026-08-02"
     validations:
       required: true
   - type: checkboxes
     id: privacy
     attributes:
-      label: Privacy confirmation
+      label: Gizlilik onayı
       options:
-        - label: I confirm this report contains no real IBAN or personal financial data.
+        - label: Bu bildirimin gerçek IBAN veya kişisel finansal veri içermediğini onaylıyorum.
           required: true

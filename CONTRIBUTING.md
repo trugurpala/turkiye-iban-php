@@ -1,16 +1,32 @@
-# Katkı Verme
+# Katkı Rehberi
 
-Bu repository yalnızca PHP istemcisini ve ana Türkiye IBAN veri sözleşmesinin
-PHP uygulamasını kapsar. Kanonik kuruluş verisi ana repository'de tutulur.
+Bu depo yalnızca PHP istemcisini ve ana Türkiye IBAN veri sözleşmesinin PHP
+uygulamasını kapsar. Kanonik kuruluş verisi
+[ana depoda](https://github.com/trugurpala/turkiye-iban) tutulur.
 
-## Başlamadan önce
+## Katkı yolları
 
-- Gerçek IBAN, hesap sahibi, müşteri kaydı veya üretim logu kullanmayın.
+- Tekrarlanabilir PHP hatası için [bug formunu](https://github.com/trugurpala/turkiye-iban-php/issues/new/choose)
+  kullanın.
+- Yeni API veya belge fikrini feature formunda açıklayın.
+- Ortak veri veya diller arası davranış konusunu
+  [ana Discussions](https://github.com/trugurpala/turkiye-iban/discussions)
+  bölümünde konuşun.
+
+Güvenlik açığı için issue açmayın; [SECURITY.md](SECURITY.md) içindeki özel
+bildirim yolunu kullanın.
+
+## Gizlilik ve kapsam
+
+- Gerçek IBAN, hesap sahibi, müşteri kaydı, üretim logu veya ekran görüntüsü
+  paylaşmayın.
 - Örnek ve fixture'larda yalnız sentetik değerler kullanın.
-- Değişiklik ana repository'deki API ve veri sözleşmesiyle uyumlu olmalıdır.
-- Kapsam dışı Türkiye veri setleri eklemeyin.
+- Değişikliği ortak API ve veri sözleşmesiyle uyumlu tutun.
+- İlgisiz Türkiye veri kümelerini bu istemciye eklemeyin.
 
-## Pull request öncesi
+## Geliştirme ortamı
+
+PHP 8.2+ ve Composer gereklidir:
 
 ```bash
 composer install
@@ -18,16 +34,17 @@ composer test
 composer analyse
 ```
 
-`tests/fixtures/conformance.manifest.json` içindeki checksum'ların ana
-repository'nin conformance release'iyle eşleştiğini kontrol edin.
-Kurulu PHP sürümünü, yapılan değişikliği ve release etkisini PR açıklamasında
-belirtin. Sabitlenmiş veri sürümü değişiyorsa checksum ve kaynak geçmişini de
-ekleyin. README, CHANGELOG, TEST_REPORT ve etkilenebilecek public belgeleri
-kontrol edin.
+`composer test` PHPUnit testlerini, `composer analyse` ise PHPStan level 8
+analizini çalıştırır.
 
-## Güvenlik ve inceleme
+## Pull request kontrolü
 
-Kişisel finans verisi içeren katkılar kabul edilmez. Yeni bir public iddia,
-veri eşleştirmesi veya yayın adımı ekliyorsanız ana repository'deki risk ve
-veri kaynakları belgelerini de inceleyin. Güvenlik bildirimi için
-[SECURITY.md](SECURITY.md) yolunu kullanın.
+- `tests/fixtures/conformance.manifest.json` checksumlarını ana conformance
+  sürümüyle karşılaştırın.
+- Kurulu PHP sürümünü ve çalıştırdığınız komutları yazın.
+- README, CHANGELOG, TEST_REPORT ve etkilenen public belgeleri gözden geçirin.
+- Sabitlenmiş veri sürümü değişiyorsa kaynak release'i ve checksumı belirtin.
+- Güvenlik, geriye uyumluluk ve release etkisini açıklayın.
+
+Odaklı bir dal açın, her committe tek bir konuyu ele alın ve pull request'i
+`main` dalına yöneltin.
