@@ -4,6 +4,17 @@ Bu rapor, `turkiye-iban-php` istemcisinin public API'sini ve indirilebilir
 release assetlerini tek tek kontrol eder. Testlerde yalniz sentetik IBAN
 kullanildi.
 
+## v0.1.8 Release Adayı Doğrulaması
+
+2026-08-03 tarihinde PHP 8.4.22 ve PHPUnit 11.5.56 ile **14 test, 120
+assertion** başarılı oldu. Composer metadata doğrulandı ve PHPStan seviye 8
+hata vermedi.
+
+Ana istemci sözleşmesindeki dış-girdi sınırı ayrıca doğrulandı: 1.024
+karakterden uzun girdi `INVALID_LENGTH` sonucu üretir; normalize edilmiş,
+formatlanmış veya maskelenmiş büyük bir gösterim üretmez ve kuruluş kodu
+döndürmez.
+
 ## Güncel Release Kanıtı
 
 - Release: [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)

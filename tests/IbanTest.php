@@ -33,4 +33,18 @@ final class IbanTest extends TestCase
     {
         self::assertFalse(Iban::validate('TR2900000109999000000000001'));
     }
+
+    public function testOversizedInputIsRejectedWithoutLargeDisplayValues(): void
+    {
+        $oversized = 'TR' . str_repeat('1', 1023);
+        $parsed = Iban::parse($oversized);
+
+        self::assertFalse($parsed['isValid']);
+        self::assertSame(['INVALID_LENGTH'], $parsed['errors']);
+        self::assertSame('', $parsed['normalized']);
+        self::assertSame('', $parsed['formatted']);
+        self::assertSame('', Iban::format($oversized));
+        self::assertSame('', Iban::mask($oversized));
+        self::assertNull(Iban::providerCode($oversized));
+    }
 }
