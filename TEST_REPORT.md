@@ -4,7 +4,12 @@ Bu rapor, `turkiye-iban-php` istemcisinin public API'sini ve indirilebilir
 release assetlerini tek tek kontrol eder. Testlerde yalniz sentetik IBAN
 kullanildi.
 
-## v0.1.8 Release Adayı Doğrulaması
+## Güncel Release Kanıtı
+
+- Release: [v0.1.8](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.8)
+- Asset: `turkiye-iban-php-v0.1.8.tar.gz`
+- SHA-256: `0e789cc8c31d89b0b94088543fe3fc0f4c5b6b36b9d4c9d2ea8df11ebca49897`
+- GitHub Actions: [tag run 30846842375](https://github.com/trugurpala/turkiye-iban-php/actions/runs/30846842375)
 
 2026-08-03 tarihinde PHP 8.4.22 ve PHPUnit 11.5.56 ile **14 test, 120
 assertion** başarılı oldu. Composer metadata doğrulandı ve PHPStan seviye 8
@@ -15,7 +20,12 @@ karakterden uzun girdi `INVALID_LENGTH` sonucu üretir; normalize edilmiş,
 formatlanmış veya maskelenmiş büyük bir gösterim üretmez ve kuruluş kodu
 döndürmez.
 
-## Güncel Release Kanıtı
+Release arşivi GitHub'dan temiz bir geçici klasöre yeniden indirildi. GitHub
+asset digest'i indirilen SHA-256 ile eşleşti; arşivde `vendor/`, `.tools/`,
+cache veya `composer.lock` bulunmadı. Arşivden sıfırdan Composer kurulumu
+yapıldı; PHPUnit ve PHPStan yeniden başarıyla çalıştırıldı.
+
+## Önceki Release Kanıtı (v0.1.7)
 
 - Release: [v0.1.7](https://github.com/trugurpala/turkiye-iban-php/releases/tag/v0.1.7)
 - Asset: `turkiye-iban-php-v0.1.7.tar.gz`
