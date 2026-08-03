@@ -1,0 +1,11 @@
+/vendor/
+/.tools/
+
+# Composer and PHPUnit artifacts
+/.phpunit.cache/
+/.phpunit.result.cache
+/coverage/
+
+# PHPStan cache
+/.phpstan.cache/
+/phpstan-result-cache.php
